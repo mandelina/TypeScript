@@ -1,0 +1,8 @@
+// TS 설정파일
+{
+  "compilterOption": {
+    "allowJS": "true", //프로젝트 안에 JS 허용
+    "checkJS": "true", //JS에서 TS의 기능을 사용할떄
+    "noImplicitAny": "true" //기본적인 타입이라도 넣어야 한다.
+  }
+}

@@ -1,16 +1,32 @@
-const emails = [
+// interface를 2개 선언하여 사용한 코드
+interface DropdownItem<T> {
+  value: T;
+  selected: boolean;
+}
+// ------------------------------------------------------------------------
+// interface Email {
+//   value: string;
+//   selected: boolean;
+// }
+
+// interface ProductNumber {
+//   value: number;
+//   selected: boolean;
+// }
+
+const emails: DropdownItem<string>[] = [
   { value: 'naver.com', selected: true },
   { value: 'gmail.com', selected: false },
   { value: 'hanmail.net', selected: false },
 ];
 
-const numberOfProducts = [
+const numberOfProducts: DropdownItem<number>[] = [
   { value: 1, selected: true },
   { value: 2, selected: false },
   { value: 3, selected: false },
 ];
 
-function createDropdownItem(item) {
+function createDropdownItem(item: DropdownItem<string> | DropdownItem<number>) {
   const option = document.createElement('option');
   option.value = item.value.toString();
   option.innerText = item.value.toString();
@@ -22,5 +38,11 @@ function createDropdownItem(item) {
 emails.forEach(function (email) {
   const item = createDropdownItem(email);
   const selectTag = document.querySelector('#email-dropdown');
-  selectTag.appendChild(item);
+  selectTag?.appendChild(item);
 });
+
+numberOfProducts.forEach(function (product) {
+  const item = createDropdownItem(product);
+});
+// ------------------------------------------------------------------------
+// 제네릭을 사용한 코드

@@ -23,8 +23,8 @@ module.exports = {
         arrowParens: 'avoid',
       },
     ],
-    '@typescript-eslint/no-explicit-any': 'off',
-    "@typescript-eslint/explicit-function-return-type": 'off',
+    '@typescript-eslint/no-explicit-any': 'on',
+    '@typescript-eslint/explicit-function-return-type': 'on',
     'prefer-const': 'off',
   },
   parserOptions: {

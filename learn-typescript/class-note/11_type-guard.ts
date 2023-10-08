@@ -9,7 +9,7 @@ interface Person {
 }
 
 function introduce(): Developer | Person {
-  return { name: 'minju', age: 24, skill: 'front' };
+  return { name: "minju", age: 24, skill: "front" };
 }
 
 let minju = introduce();
@@ -21,3 +21,16 @@ if ((minju as Developer).skill) {
 }
 
 // 위에 방법은 복잡. 이때 타입 가드 사용
+
+// 타입 가드 함수 (is 키워드)
+function isDeveloper(target: Developer | Person): target is Developer {
+  return (target as Developer).skill !== undefined;
+}
+
+if (isDeveloper(minju)) {
+  // Developer 타입이면
+  minju.skill;
+} else {
+  // Person 타입이면
+  minju.age;
+}
